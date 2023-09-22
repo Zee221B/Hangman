@@ -1,241 +1,67 @@
-# Hangman_milestone1
-In this milestone I learned how to use basic Python commands to create varaibles for the game e.g 'if-else', import, input(), and print().
 
-Code:
-import random 
-word_list = ("strawberries","pears","bananas","raspberries","dates")
-print(word_list)
-random.choice(word_list)
-guess = input("Please eneter a single letter.")
-if ((guess>= 'a' and guess<= 'z') or (guess>= 'A' and guess<= 'Z')):
-    print("Good guess!")
-else:
-    print("Oops! That is not a valid input")
+# Hangman
 
-milestone_2.py: 
-import random 
-word = ["doctor"]
-random_word = random.choice(word)
-
-
-def check_guess(guess):
+# Table of Contents
+1. [Introduction](#introduction)
+2. [Section 1](#Setting up the environment)
+3. [Section 2](#Creating the variables for the game)
+4. [Section 3](#Checking if the guessed character is in the word)
+5. [Section 4](#Creating the Game class)
+6. [Section 5](#Putting it all together)
+7. [Section 6](#Installation Instructions)
+8. [Section 7](#Usage Instructions)
+9. [Section 8](#License Information)
     
-        # guess = str(input("Guess a number: ")).lower()
-        if guess in random_word: 
-            print(f"Good guess! {guess} is in the word")
-            break
-        else:
-            print(f"Sorry, {guess}  is not in the word. Try again.")
-            break
-def ask_for_input():
-    while True:
-        guess = str(input("Guess a letter: ")).lower()
-        if guess.isalpha() and len(guess) == 1:
-            check_guess(guess)
-            print(ask_for_input())
-            break
-        else:
-            print("Invalid letter. Please, enter a single alphabetical character.")
-print(ask_for_input()) 
+## Introduction
 
-milestone_3.py
+This project was built as my first introduction to AiCore. Creating the classic game Hangman required me to implement variables as well as Object Oriented programming.
 
-I created a hangman class, and defined it with the init method and self attributes.
-Code:
-import random
+## Setting up the environment
 
-from milestone_2 import ask_for_input
+In this project, I use GitHub to track changes to my code and save them online in a GitHub repo. 
+
+## Creating the variables for the game
+
+I needed to use basic python commands, such as if-else statements and while loops. I first created a file named milestone_2.py which would contain the code. I created a list containing the names of my 5 favourite fruits and assigned the list to a variable called word_list. I then needed to choose a random word from the list. I did this using the 'random' module. Next, I asked the uer for an input using the input() function. I used this functio to ask the user to guess a single letter, and assigned the input to a variable called guess. I used if and else statements to check the input was a single charactr. 
 
 
-def check_guess(guess):
-    print(check_guess(guess))
+## Checking if the guessed character is in the word
 
-class Hangman:
-    def __init__(self, word_list, num_lives=5):
-        self.word = random.choice(word_list)
-        self.word_guessed = len(self.word)* ["_"]
-        self.num_letters = len(set(self.word))
-        self.num_lives = num_lives
-        self.word_list  = word_list
-        self.list_of_guesses = []
-    
-    def check_guess(self,guess):
-            if guess.lower() in self.word: 
-                print(f"Good guess! {guess} is in the word")
-                for char in range(len(self.word)):
-                    print(char)
-                    if self.word[char] == guess:
-                        self.word_guessed[char] = guess
-                        break
-                    print(self.word_guessed)
-                count +=1
-            else:
-                self.num_lives -=1
-                print(f"Sorry, {guess} is not in the word.")
-                print(f"You have {self.num_lives} lives left.") 
-            self.list_of_guesses.append(guess)
-                
-                
-    def ask_for_input(self):
-        while True:
-            guess = str(input("Guess a letter: ")).lower()
-            if not guess.isalpha() and len(guess) != 1:
-                print("Invalid letter. Please, enter a single alphabetical character.")
-            elif guess in self.list_of_guesses:
-                print("You already tried that letter!")
-            else:
-                check_guess(guess)
-    def __add__(self, guess, list_of_guesses):
-            self.guess = guess + list_of_guesses
-            return self.guess + self.list_of_guesses
+This code will continously ask the user for a letter and validate it. I created a script called milestone_3.py for this code. I created a while loop setting condition to true. I ask the user to guess a letter, assigning this a variable called guess. I check the guess is a single alphabetical character using the isalpha method. If the guess passes teh checks it breaks the loop, otherwise a message prints saying "Invalid letter. Please, enter a single alphabetical character."  Similarly I use if-else statements to check whether the guess is in the word.
 
-my_game = Hangman(word_list = ["doctor", "hello", "apple", "people"])
-my_game.ask_for_input()
+## Creating the Game class
 
+I created another script called milestone_py, and defined the __init method of the Hangman class. Inside the class I initialised different attributes: 
 
+word: The word to be guessed, picked randomly from the word_list. 
+word_guessed: list - A list of the letters of the word, with _ for each letter not yet guessed. For example, if the word is 'apple', the word_guessed list would be ['_', '_', '_', '_', '_']. If the player guesses 'a', the list would be ['a', '_', '_', '_', '_']
+num_letters: int - The number of UNIQUE letters in the word that have not been guessed yet
+num_lives: int - The number of lives the player has at the start of the game.
+word_list: list - A list of words
+list_of_guesses: list - A list of the guesses that have already been tried. 
 
-CYLINDER PRACTICAL
-from cgitb import small
-import math
+ I would then create a method that will ask the user to guess a letter and another method that will check if the guess is in the word. The method was extended to define what happened if the letter was in the word, with a for-loop. An else statement as used if the letter was not in the word. The else block would reduce the number of lives by one and print a message saying "Sorry, {letter} is not in the word." and "You have {num_lives} lives left."
 
-class Cylinder:
-    def __init__(self, height, radius):
-        self.height = height
-        self.radius = radius
-        self.surface_area = self.get_surface_area()
-        self.volume = None 
+## Putting it all together
 
-    def get_surface_area(self):
-        surface_area_value = 3.14*self.radius*self.height + 2*3.14*(self.radius ** 2) 
-        return(surface_area_value)
+Here I could code the logic of the game. I made a new script called milestone_5.py and copied all of the code from milestone_4.py. I created a function called play_game that took word_list as a parameter. Inside the function, I wrote the code to:
 
-    def get_volume(self):
-        volume_value = 3.14*self.radius**2*self.height
-        return(volume_value)
-      
+-Create a variable called num_lives and assign it to 5
+-Create an instance of the Hangman class. Do this by calling the Hangman class and assign it to a variable called game
+-Pass word_list and num_lives as arguments to the game object
+-Create a while loop and set the condition to True. In the body of the loop, do the following:
+-Check if the num_lives is 0. If it is, that means the game has ended and the user lost. Print a message saying 'You lost!'
+-Check if the num_letters is greater than 0. In this case, you would want to continue the game, so you need to call the ask_for_input method.
+If the num_lives is not 0 and the num_letters is not greater than 0, that means the user has won the game. A message would print saying 'Congratulations. You won the game!'
 
-small_cylinder = Cylinder(5, 10)
-big_cylinder = Cylinder(10, 8)
+Outside the function, I would call my play_game function to play my game.
 
-print(small_cylinder.surface_area)
-print(small_cylinder.get_volume())
-#print(small_cylinder.get_surface_area())
-#print(big_cylinder.height)
+## Installation instructions
 
-CAR PRACTICAL
-from unittest import TestLoader
+To carry out section 2 of this project, you will need to have VSCode installed on your machine. 
 
+## License information
 
-class Car:
-    def __init__(self, model, year=2022):
-        self.model = model
-        self.year = year
-        self.miles_driven = 0
-        
-    def info(self):
-        print(f"The car {self.model} was made in {self.year}.")
-    
-    def drive(self):
-            print("Vroom!")
-
-    def update_miles_driven(self, additional_miles):
-        self.miles_driven = additional_miles
-        print("You have driven " + str(self.miles_driven) + " miles so far!")
-    
-    def increment_miles_driven(self, additional_miles):
-        # add miles driven by 1
-        self.miles_driven += additional_miles
-        print("You have driven " + str(self.miles_driven) + " miles so far!")
-
-my_car = Car("Tesla")
-
-my_car.info()
-
-my_car.drive()
-
-my_car.update_miles_driven(0)
-my_car.increment_miles_driven(1)
-
-MAGIC METHODS
-class Vector:
-    def __init__(self, three, nine, ten):
-        self.three = three
-        self.nine = nine
-        self.ten = ten
-    
-    def __repr__(self):
-        return repr()
-
-HANGMAN PROJECT ATTEMPT 2 - Complete 
-
-For this project, I utilised object-oritented programming. I creatd he Hangman class and within that defined parameters within methods, including the magic 'init' method. I defined what happens when the user's guess is in the word, and how this affects the number of lives they have left, I also defined the input to check if the user guessed a valid single, alphabetical letter. For both of these instances I created the functions check_guess and ask_for_input. The conditions within these functions were in the form of 'if-else' statements and 'while' loops.
-
-import random
-
-
-# define the list possible words and choose random word from list
-
-
-# word = random.choice(word_list)
-# print(word)
-
-
-class Hangman:
-    def __init__(self, word_list, num_lives=5):
-        self.word = random.choice(word_list)
-        self.word_guessed = len(self.word)* ["_"]
-        self.num_letters = len(set(self.word))
-        self.num_lives = num_lives
-        self.word_list = word_list
-        self.list_of_guesses = [] 
-        
-    
-    # method to check if guess is in the word
-    def check_guess(self, guess):
-        #print(guess)
-        if guess in self.word:
-            print(f"Good guess! {guess} is in the word. ")
-            for index,char in enumerate(self.word):
-                    # print(index,char)
-                    if guess == char:
-                        self.word_guessed[index] = guess
-                        #break
-            print(self.word_guessed)
-            self.num_letters -= 1   
-            
-        else:
-            self.num_lives -= 1
-            print(f"Sorry, {guess} is not in the word. Try again.")
-            print(f"You have {self.num_lives} lives left.")
-            if self.num_lives == 0:
-                print("Oh no! You lost! ")
-            if self.num_lives != 0 and self.num_letters == 0:
-                print(f"Congratulations, you have won Hangman! :D ")
-           
-
-        self.list_of_guesses.append(guess)
-        
-
-    # ask the user for input and check if it is a valid guess
-
-    def ask_for_input(self):
-        while True:
-            guess = str(input("Guess a letter: ")).lower()
-            if not guess.isalpha() or len(guess) !=1:
-                print("Invalid letter. Please, enter a single alphabetical character. ")
-            elif guess in self.list_of_guesses:
-                print("You already tried that letter! ")
-            else:
-                self.check_guess(guess)
-                self.list_of_guesses.append(guess)
-
-           
-
-word_list = ["strawberry", "kiwi", "banana", "dates", "pear"]
-form_input = Hangman(word_list)
-form_input.ask_for_input()
-
-   
 
 
 
