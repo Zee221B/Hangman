@@ -3,14 +3,14 @@
 
 # Table of Contents
 1. [Introduction](#introduction)
-2. [Section 1](#Setting up the environment)
-3. [Section 2](#Creating the variables for the game)
-4. [Section 3](#Checking if the guessed character is in the word)
-5. [Section 4](#Creating the Game class)
-6. [Section 5](#Putting it all together)
-7. [Section 6](#Installation Instructions)
-8. [Section 7](#Usage Instructions)
-9. [Section 8](#License Information)
+2. [Setting up the environment](#Setting-up-the-environment)
+3. [Creating the variables for the game](#Creating-the-variables-for-the-game)
+4. [Checking if the guessed character is in the word](#Checking-if-the-guessed-character-is-in-the-word)
+5. [Creating the Game class](#Creating-the-Game-class)
+6. [Putting it all together](#Putting-it-all-together)
+7. [Installation Instructions](#Installation-Instructions)
+8. [Usage Instructions](#Usage-Instructions)
+9. [License Information](#License-Information)
     
 ## Introduction
 
