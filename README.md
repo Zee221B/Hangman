@@ -29,6 +29,8 @@ I needed to use basic python commands, such as if-else statements and while loop
 
 This code will continously ask the user for a letter and validate it. I created a script called milestone_3.py for this code. I created a while loop setting condition to true. I ask the user to guess a letter, assigning this a variable called guess. I check the guess is a single alphabetical character using the isalpha method. If the guess passes teh checks it breaks the loop, otherwise a message prints saying "Invalid letter. Please, enter a single alphabetical character."  Similarly I use if-else statements to check whether the guess is in the word.
 
+![Alt text](image.png)
+
 ## Creating the Game class
 
 I created another script called milestone_py, and defined the __init method of the Hangman class. Inside the class I initialised different attributes: 
@@ -41,6 +43,8 @@ word_list: list - A list of words
 list_of_guesses: list - A list of the guesses that have already been tried. 
 
  I would then create a method that will ask the user to guess a letter and another method that will check if the guess is in the word. The method was extended to define what happened if the letter was in the word, with a for-loop. An else statement as used if the letter was not in the word. The else block would reduce the number of lives by one and print a message saying "Sorry, {letter} is not in the word." and "You have {num_lives} lives left."
+
+ ![Alt text](image-1.png)
 
 ## Putting it all together
 
